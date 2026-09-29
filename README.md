@@ -1,124 +1,140 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Saffron Restaurant API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Backend API for the **Saffron Restaurant** full-stack platform.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+It manages restaurant products, customer orders, table reservations, and protected admin operations.
 
-## Description
+## Features
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- REST API built with NestJS and TypeScript
+- PostgreSQL database with TypeORM
+- Docker database environment
+- Dynamic restaurant menu products
+- Customer order creation
+- Customer table reservations
+- Admin authentication with JWT
+- Protected admin routes
+- Reservation management
+- Order status management
+- CORS enabled for the Next.js frontend
 
-## Project setup
+## Tech Stack
 
-```bash
-$ npm install
-```
+- NestJS
+- TypeScript
+- PostgreSQL
+- TypeORM
+- Docker and Docker Compose
+- JWT Authentication
+- bcrypt
+- class-validator
 
-## Compile and run the project
+## Related Frontend Repository
 
-```bash
-# development
-$ npm run start
+The frontend is available here:
 
-# watch mode
-$ npm run start:dev
+[View Saffron Restaurant Frontend](https://github.com/Abdulrhman-Majthoub/saffron-restaurant-frontend)
 
-# production mode
-$ npm run start:prod
-```
+## API Endpoints
 
-## Run tests
+### Authentication
 
-```bash
-# unit tests
-$ npm run test
+| Method | Endpoint | Description |
+|---|---|---|
+| POST | `/auth/login` | Admin login and JWT token generation |
 
-# e2e tests
-$ npm run test:e2e
+### Products
 
-# test coverage
-$ npm run test:cov
-```
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/products` | Get all available restaurant products |
 
-## Deployment
+### Reservations
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+| Method | Endpoint | Description |
+|---|---|---|
+| POST | `/reservations` | Create a table reservation |
+| GET | `/reservations` | Get all reservations — Admin only |
+| PATCH | `/reservations/:id` | Update a reservation — Admin only |
+| DELETE | `/reservations/:id` | Delete a reservation — Admin only |
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### Orders
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
+| Method | Endpoint | Description |
+|---|---|---|
+| POST | `/orders` | Create a customer order |
+| GET | `/orders` | Get all orders — Admin only |
+| PATCH | `/orders/:id/status` | Update order status — Admin only |
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+## Getting Started
 
-## Observability
-
-In production applications, observability is essential for understanding how your system behaves, detecting issues early, and maintaining reliable performance.
-
-[NestJS Observe](https://observe.nestjs.com) automatically instruments your NestJS application, giving you deep visibility into your system with minimal setup:
-
-- **Distributed tracing:** Follow requests across services and understand how they flow through your system.
-- **Waterfall analysis:** Visualize request execution and identify slow operations, bottlenecks, and unexpected delays.
-- **Performance analysis:** Analyze application performance in real time and quickly pinpoint areas that need optimization.
-- **Metrics:** Track key application and infrastructure metrics to understand system health and performance trends.
-- **Logging:** Centralize and correlate logs with traces and other telemetry to make debugging easier.
-- **Error tracking:** Detect errors quickly and investigate their root causes with the surrounding context.
-- **SLA monitoring:** Track service-level objectives and identify when your application is approaching or exceeding defined thresholds.
-- **Alarms and alerts:** Set up alerts for critical errors, performance degradation, SLA violations, and other anomalies so your team can react quickly.
-
-To add it to this project:
+### 1. Clone the repository
 
 ```bash
-$ npm install @nestjs/observe
+git clone https://github.com/Abdulrhman-Majthoub/saffron-restaurant-api.git
+cd saffron-restaurant-api
 ```
 
-Then follow the [setup guide](https://docs.nestjs.com/observability/overview) - it takes a single import and an app key.
+### 2. Install dependencies
 
-The free plan needs no payment details and covers 300,000 events a month. You can also browse the [live demo](https://www.observe-demo.nestjs.com/dashboard) first - the whole dashboard over a busy service's data, with nothing to install.
+```bash
+npm install
+```
 
-## Resources
+### 3. Create the environment file
 
-Check out a few resources that may come in handy when working with NestJS:
+Create a file named `.env` in the project root:
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Auto-instrument your application with [NestJS Observe](https://observe.nestjs.com). Distributed tracing, metrics, and logging made easy. Error tracking and performance monitoring for your NestJS applications.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+```env
+JWT_SECRET=change_this_to_a_secure_secret
+ADMIN_EMAIL=admin@saffron.am
+ADMIN_PASSWORD=change_this_password
+```
 
-## Support
+> Never upload the `.env` file to GitHub.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### 4. Start PostgreSQL with Docker
 
-## Stay in touch
+```bash
+docker compose up -d
+```
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+The PostgreSQL database runs through Docker on port `5433`.
 
-## License
+### 5. Start the API
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+```bash
+npm run start:dev
+```
+
+The API will run on:
+
+```text
+http://localhost:3001
+```
+
+## Project Structure
+
+```text
+src/
+  auth/           Admin authentication and JWT protection
+  orders/         Customer orders and order status management
+  products/       Restaurant menu products
+  reservations/   Table reservation management
+  app.module.ts   Main application module
+  main.ts         API bootstrap and CORS configuration
+```
+
+## Future Improvements
+
+- HyperPay or PayTabs online payment integration
+- Payment webhook verification
+- Email confirmations for orders and reservations
+- Delivery address and delivery zone support
+- Admin analytics dashboard
+- Product availability management
+- Production deployment
+
+## Author
+
+Built by Abdulrahman Majthoub as a full-stack portfolio project.
