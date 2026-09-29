@@ -1,0 +1,1 @@
+{"version":3,"file":"update-reservation.dto.js","sourceRoot":"","sources":["../../../src/reservations/dto/update-reservation.dto.ts"],"names":[],"mappings":";;;;;;;;;AAAA,OAAO,EAAE,IAAI,EAAE,UAAU,EAAE,MAAM,iBAAiB,CAAC;AAEnD,MAAM,OAAO,oBAAoB;IAG/B,MAAM,CAA6B;CACpC;AADC;IAFC,UAAU,EAAE;IACZ,IAAI,CAAC,CAAC,WAAW,EAAE,WAAW,CAAC,CAAC;;oDACE"}

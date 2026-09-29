@@ -1,0 +1,15 @@
+services:
+  database:
+    image: postgres:16-alpine
+    container_name: saffron-restaurant-database
+    environment:
+      POSTGRES_USER: saffron
+      POSTGRES_PASSWORD: saffron_password
+      POSTGRES_DB: saffron_restaurant
+    ports:
+      - "5433:5432"
+    volumes:
+      - saffron_restaurant_data:/var/lib/postgresql/data
+
+volumes:
+  saffron_restaurant_data:
